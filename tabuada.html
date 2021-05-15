@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+
+<!--
+	Tabuada Interativa.
+-->
+
+<h1>Tabuada</h1>
+
+<script>
+	
+	//Função para pular 2 linhas;
+	function pulaLinha() {
+
+		document.write("<br>");	
+		document.write("<br>");	
+	}
+
+	//Função para mostrar uma frase e pular 2 linhas;
+	function mostra(frase) {
+
+		document.write(frase);
+		pulaLinha();
+	}
+	
+	//Pede um nº para o usuário;
+	var numero = parseInt(prompt("Insira um nº para TABUADA:"));
+
+	//Laço de 1 a 10 do multiplpicador;
+	for(var multiplicador = 1; multiplicador <= 10; multiplicador++) {
+
+		mostra(numero + " vezes " + multiplicador + " = " + (numero * multiplicador));
+	} 
+		
+</script>
+
+
+
+
