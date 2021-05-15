@@ -1,0 +1,107 @@
+<meta charset="UTF-8">
+
+<!--
+       Guess game, consiste em um jogo de advinhação:
+       O usuário deve tentar acertar um número de "1 a 10"
+       dentro de uma lista aleatória gerada pelo computador.
+-->
+
+<input/>
+<button>Chutar!</button>
+
+<h1>Tente advinhar meus números secretos!</h1>
+
+<p>Números de 0 a 10</p>
+
+<script>
+
+    //Função atalho para gerar um nº aleatório de 0 a 10;
+    function sorteia() { 
+
+       return Math.round(Math.random() * 10);
+
+    }
+    
+    //Função que gera uma lista com nº aleatórios seguido algumas restrições;
+    function sorteiaNumeros(quantidade) {
+        
+        //Lista de segredos secundária apenas da função;
+        var segredos = [];
+        var cont = 1;
+        
+        //Enquanto a contagem for menor que a quantidade de nº a serem sorteados;
+        while(cont <= quantidade) {
+
+              //Números aleatórios sendo gerados;
+              var numeroAleatorio = sorteia(); 
+              var achou = false;
+              
+              //Os nº gerados devem ser diferente de 0;
+              if (numeroAleatorio !== 0) {
+                     
+                     //Percorrer as posições da lista para avaliar os n gerados;
+                     for(var posicao = 0; posicao < segredos.length; posicao++) {
+                           
+                           //Se o nº da lista de segredos for igual ao nº aleatório gerado, o laço é repetido;
+                           if(segredos[posicao] == numeroAleatorio){
+                                achou = true;
+                                break;
+                           }
+                     }
+
+                            //Se o nº da lista de segredos for diferente ao nº gerado, o nº é adicionado a lista aleatória;
+                            if (achou == false) {
+                            segredos.push(numeroAleatorio);
+                            cont++;
+                     }
+              }
+        }
+
+        //Ao final os nº selecionados vão para lista principal de segredos;
+        return segredos;
+
+    }
+
+    //Lista de segredos principal;
+    var segredos = sorteiaNumeros(3);
+
+    console.log(segredos);
+
+    //Coletando valor inserido pelo usuário;
+    var input = document.querySelector("input");
+    input.focus();
+
+    //Função de verificação de erro e acerto;
+    function verifica() {
+
+       var achou = false;
+
+       //Percorretodos os valores da lista de segredos;
+       for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+              //Se acertar acaba;
+              if(input.value == segredos[posicao]) {
+
+                     alert("Você ACERTOU!");
+                     achou = true;
+                     break;
+              } 
+       }
+
+              //Se errar retorna ao laço;
+              if(achou == false) {
+
+                     alert("Você ERROU!");
+              }
+       
+       input.value = "";
+       input.focus();
+
+    }
+
+    var button = document.querySelector("button");
+
+    //Aciona a função atravéz d oclique do botão;
+    button.onclick = verifica;
+
+</script>
