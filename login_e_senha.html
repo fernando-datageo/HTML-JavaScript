@@ -1,0 +1,49 @@
+<meta charset="UTF-8">
+
+<h1>Cadastro:</h1>
+
+<script>
+
+    //Variáveis de entrada:
+    var nomeCadastrado = prompt("CADASTRE seu NOME: ")
+    var loginCadastrado = prompt("CADASTRE seu LOGIN:");
+    var senhaCadastrada = prompt("CADASTRE sua SENHA:");
+
+    var maximoTentativas = 3;
+    var tentativaAtual = 1;
+
+    while(tentativaAtual <= maximoTentativas) {
+
+        //Validação;
+        var loginInformado = prompt("Informe seu Login");
+        var senhaInformada = prompt("Informe sua Senha");
+
+        //Condição de acesso ao sistema;
+        if( loginCadastrado == loginInformado && senhaCadastrada == senhaInformada ) {
+
+            document.write("Bem-vindo ao sistema, " + nomeCadastrado);
+            document.write("<br>")
+            document.write("<br>")
+            document.write("Seu Login é: " + loginCadastrado);
+            document.write("<br>")
+            document.write("Sua Senha é: " + senhaCadastrada);
+
+            //Acertou, iguala-se todas as tentativas para sair do laço;
+            tentativaAtual = maximoTentativas; 
+
+          //Errou faz-se a contagem até 3 tentativas;
+        } else {
+
+            if (tentativaAtual == 3) {
+                alert("Número permitido de tentativas ultrapassado!");
+
+            } else {
+                alert("Login inválido. Tente novamente");
+            }
+        }
+
+       //Vai para a tentativa seguinte;
+        tentativaAtual = tentativaAtual +1  
+    }
+
+</script>
