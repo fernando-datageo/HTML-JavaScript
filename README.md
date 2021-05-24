@@ -3,6 +3,7 @@
 Projetos desenvolvidos no curso de Lógica à Programação.
 
 - Guess Game
+    
     Guess game, consiste em um jogo de advinhação:
     O usuário deve tentar acertar um número de "1 a 10", dentro de uma lista aleatória gerada pelo computador.
     
