@@ -1,8 +1,9 @@
 # HTML-JavaScript
 
-Projetos desenvolvidos no curso de Lógica à Programação.
+- Olá Mundo
+
+Lógica:
 
 - Guess Game  
 - Login e Senha    
-- Olá Mundo
 - Tabuada
